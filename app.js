@@ -1,9 +1,65 @@
-const frontWordInput = document.querySelector('#front-word')
-const backWordInput = document.querySelector('#back-word')
-const cardsContainer = document.querySelector('.cards-container')
 const addButton = document.querySelector('#add-button')
+const frontText = document.querySelector('#front-word')
+const backText = document.querySelector('#back-word')
+const containerElem = document.querySelector('.cards-container')
+const buttonLeftElem = document.querySelector('buttonLeft');
+const buttonRightElem = document.querySelector('buttonRight');
 
 
+const currentCardIndex = 0;
+const cards = []
+
+
+addButton.addEventListener('click', function (e) {
+    
+    cards.push({
+        front: frontText.value,
+        back: backText.value,
+        visible: false
+    });
+
+    frontText.value = ''
+    backText.value = ''
+    displayCards();
+});
+
+function displayCards() {
+    
+    const elem = document.createElement('div')
+    
+    cards.forEach((card, index) => {
+     
+        elem.innerHTML = card.front
+        elem.classList = 'card' + (index+1)
+        containerElem.appendChild(elem)
+
+        
+    })
+
+    elem.classList.add('card')
+};
+
+
+
+
+
+buttonLeftElem.addEventListener('click', function (e) {
+    currentCardIndex--;
+    displayCards();
+});
+
+buttonRightElem.addEventListener('click', function (e) {
+    currentCardIndex++;
+    displayCards();
+});
+
+
+
+
+
+
+
+/*
 addButton.addEventListener('click', () => {
     
 
@@ -46,58 +102,4 @@ addButton.addEventListener('click', () => {
 
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-addButton.addEventListener('click', () => {
-
-    const newWord1 = frontWordInput.value
-    const newWord2 = backWordInput.value
-
-    cardsContainer.innerHTML = `
-        <button class='left'> << </button>
-        <div class='card1'>${newWord1}</div>
-        <div class='card2 block'>${newWord2}</div>
-        <button class='right'>   >> </button>
-
-    `
-    frontWordInput.value = ''
-    backWordInput.value = ''
-
-
-    //card turn-back
-    const card1 = document.querySelector('.card1')
-    const card2 = document.querySelector('.card2')
-
-    card1.addEventListener('click', () => {
-        card1.classList.add('block')
-        card2.classList.remove('block')
-    })
-
-
-    card2.addEventListener('click', () => {
-        card1.classList.remove('block')
-        card2.classList.add('block')
-
-    })
-
-
-})
 */
-
-
-
