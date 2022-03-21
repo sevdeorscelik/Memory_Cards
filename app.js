@@ -1,13 +1,16 @@
 const addButton = document.querySelector('#add-button')
 const frontText = document.querySelector('#front-word')
 const backText = document.querySelector('#back-word')
+const currentEl = document.getElementById('current');
 const containerElem = document.querySelector('.cards-container')
-const buttonLeftElem = document.querySelector('buttonLeft');
-const buttonRightElem = document.querySelector('buttonRight');
+const buttonLeftElem = document.querySelector('.buttonLeft');
+const buttonRightElem = document.querySelector('.buttonRight');
 
 
-const currentCardIndex = 0;
+let currentCardIndex = 1;
 const cards = []
+
+
 
 
 addButton.addEventListener('click', function (e) {
@@ -18,10 +21,18 @@ addButton.addEventListener('click', function (e) {
         visible: false
     });
 
+    displayCards();
+    updateCurrentIndex();
+    
     frontText.value = ''
     backText.value = ''
-    displayCards();
 });
+
+
+function updateCurrentIndex() {
+    currentEl.innerHTML = `${currentCardIndex }/${cards.length} `
+    
+}
 
 function displayCards() {
     
@@ -29,30 +40,46 @@ function displayCards() {
     
     cards.forEach((card, index) => {
      
-        elem.innerHTML = card.front
+        elem.innerHTML = `
+        <div class="inner-card">
+        <div class="inner-card-front">
+          <p>
+            ${card.front}
+          </p>
+        </div>
+        <div class="inner-card-back">
+          <p>
+            ${card.back}
+          </p>
+        </div>
+      </div>
+        `;
+
         elem.classList = 'card' + (index+1)
         containerElem.appendChild(elem)
 
-        
     })
 
     elem.classList.add('card')
 };
 
+console.log(containerElem);
+console.log(cards);
 
 
+buttonLeftElem.addEventListener('click', function(e) {
+    
+    currentCardIndex -= 1;
+    updateCurrentIndex();
 
-
-buttonLeftElem.addEventListener('click', function (e) {
-    currentCardIndex--;
-    displayCards();
 });
 
 buttonRightElem.addEventListener('click', function (e) {
-    currentCardIndex++;
-    displayCards();
-});
 
+    currentCardIndex += 1;
+    updateCurrentIndex();
+    
+});
 
 
 

@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 :root {
@@ -11,6 +12,7 @@
 body {
     font-size: 1.6rem;
     background-color: #f1f1f1;
+    height: 100vh;
 
     header {
         text-align: center;
@@ -25,7 +27,7 @@ body {
         justify-content: center;
         align-items: center;
 
-
+        
         .inputs-container {
             background-color: pink;
             margin: 2rem;
@@ -57,30 +59,42 @@ body {
         }
 
         .cards-container {
+  
+            background-color: pink;
+            display: flex;
             
-            width: 100%; 
-            display: flex; 
-            flex-direction: row;  
-            justify-content: center;
-            align-items: center;
-/*
-            .card1, .card2{
-                background-color: pink;
-                border: solid 1px brown;
-                font-size: 5rem;
-                width: 30rem;
-                height: 40rem;
+            .card{
+                display: flex;
                 text-align: center;
-                line-height: 40rem;
-                cursor: pointer;
-                margin: 1rem;
+                align-items: center;
+                justify-content: center;
+                background-color: yellow;
+                height: 45rem;
+                width: 30rem;
 
+                p{
+                    font-size: 5rem;
+                }
+            }           
+                      
+        }
+
+        .buttons{
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+
+            button{
+                font-size: 3rem;
             }
-            */
-            .block{
-                display: none;
+
+            p{
+                width: 5rem;
+                font-size: 2rem;
+                line-height: 5rem;
+                text-align: center;
+                font-weight: bold;
             }
-                        
         }
     }
 
