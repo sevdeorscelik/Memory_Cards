@@ -15,16 +15,18 @@
     <div class="container">
 
         <div class="inputs-container">
+            <div class="inputs">
+                <div class="input">
 
-            <div class="input">
+                    <label for="front-side">Deutsch : </label>
+                    <input class="text" type="text" id="front-word">
+                </div>
+                <div class="input">
 
-                <label for="front-side">De: </label>
-                <input type="text" id="front-word">
-            </div>
-            <div class="input">
+                    <label for="back-side">English &nbsp;: </label>
+                    <input class="text" type="text" id="back-word">
+                </div>
 
-                <label for="back-side">En: </label>
-                <input type="text" id="back-word" >
             </div>
 
             <input id="add-button" type="submit" value="+ add ">
@@ -48,12 +50,9 @@
         </div>
         <div class="buttons">
 
-            <button class="buttonLeft ">
-                <<< </button> <p id="current">
-                    </p>
-                    <button class="buttonRight ">
-                        >>>
-                    </button>
+            <button class="buttonLeft "> </button>
+            <p id="current"> <!-- 1/5 --> </p>
+            <button class="buttonRight "></button>
 
         </div>
 
