@@ -12,24 +12,31 @@ const cards = []
 
 
 
-
-
-buttonLeftElem.addEventListener('click', function(e) {
+buttonRightElem.addEventListener('click', function (e) {
     
-    currentCardIndex -= 1;
+    currentCardIndex ++;
+
+    if (currentCardIndex > cards.length - 1) {
+        currentCardIndex = cards.length - 1;
+      }
+
+    containerElem.children[currentCardIndex].classList.add('visible')
+    containerElem.children[currentCardIndex-1].classList.remove('visible')
+   
     updateCurrentIndex();
 
 });
 
-buttonRightElem.addEventListener('click', function (e) {
+buttonLeftElem.addEventListener('click', function(e) {
+   currentCardIndex --;
 
-    currentCardIndex += 1;
-
-   const a = document.querySelectorAll(".card");
-   
-   a[currentCardIndex].className = 'card visible'
-   a[currentCardIndex-1].className = 'card'
-   
+   if (currentCardIndex < 1) {
+    currentCardIndex = 0;
+  }
+console.log(currentCardIndex);
+    containerElem.children[currentCardIndex+1].classList.remove('visible')
+    containerElem.children[currentCardIndex].classList.add('visible')
+    
 
     updateCurrentIndex();
 
@@ -38,39 +45,48 @@ buttonRightElem.addEventListener('click', function (e) {
 
 
 function updateCurrentIndex() {
-    currentEl.innerHTML = `${currentCardIndex+1  }/${cards.length} `
+    currentEl.innerHTML = `${currentCardIndex+1 }/${cards.length} `
     
 }
 
 function displayCards() {
     
     const elem = document.createElement('div')
+    elem.className = 'inner-card'
+    
     
     cards.forEach((card, index) => {
      
         elem.innerHTML = `
-        <div class="inner-card">
-        <div class="inner-card-front">
-          <p>
-            ${card.front}
-          </p>
-        </div>
-        <div class="inner-card-back">
-          <p>
-            ${card.back}
-          </p>
-        </div>
-      </div>
+        
+            <div class="card-front">
+                <p>
+                    ${card.front}
+                </p>
+            </div>
+            <div class="card-back">
+                <p>
+                    ${card.back}
+                </p>
+            </div>
+      
         `;
 
         containerElem.appendChild(elem)
+        
+        containerElem.children[0].className = 'inner-card visible'
+
+        if(cards.length > 1 && currentCardIndex > 0 ) {
+            containerElem.children[0].className = 'inner-card'
+        } 
+        
 
     })
-    
-    elem.classList.add('card')
-    document.querySelectorAll(".card")[0].className = 'card visible';
-    
+   
 };
+
+
+
 
 addButton.addEventListener('click', function (e) {
 
@@ -79,7 +95,8 @@ addButton.addEventListener('click', function (e) {
         back: backText.value,
         visible: false
     });
-
+    
+    
     displayCards();
     updateCurrentIndex();
     
@@ -87,9 +104,8 @@ addButton.addEventListener('click', function (e) {
     frontText.value = ''
     backText.value = ''
 
-    currentCardIndex = 0;
+    
 });
-
 
 console.log(containerElem);
 console.log(cards);
