@@ -61,72 +61,47 @@ body {
         }
 
         .cards-container {
-            background-color: transparent;
-            width: 300px;
-            height: 200px;
-            border: 1px solid #f1f1f1;
-            perspective: 1000px;
 
 
-            .inner-card {
+            display: flex;
 
-                position: relative;
-                width: 100%;
-                height: 100%;
+            .card{
+                display: flex;
                 text-align: center;
-                transition: transform 0.8s;
-                transform-style: preserve-3d;
-
+                align-items: center;
+                justify-content: center;
+                background-color: yellow;
+                height: 45rem;
+                width: 30rem;
                 display: none;
 
-                .card-front,
-                .card-back {
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    visibility: hidden;
-
-
-                    p {
-                        font-size: 5rem;
-                    }
-
+                p{
+                    font-size: 5rem;
                 }
+            } 
+            .visible{
+                display: inline-block;
+            }          
 
-                .card-front {
-                    background-color: #bbb;
-                    color: black;
-                }
-
-                .card-back {
-                    background-color: dodgerblue;
-                    color: white;
-                    transform: rotateY(180deg);
-                }
-
-                .visible {
-                    display: inline-block;
-                }
-
-            }
-
-            .buttons {
-                display: flex;
-                flex-direction: row;
-                gap: 2rem;
-
-                button {
-                    font-size: 3rem;
-                }
-
-                p {
-                    width: 5rem;
-                    font-size: 2rem;
-                    line-height: 5rem;
-                    text-align: center;
-                    font-weight: bold;
-                }
-            }
         }
 
+        .buttons{
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+
+            button{
+                font-size: 3rem;
+            }
+
+            p{
+                width: 5rem;
+                font-size: 2rem;
+                line-height: 5rem;
+                text-align: center;
+                font-weight: bold;
+            }
+        }
     }
+
+}

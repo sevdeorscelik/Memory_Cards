@@ -52,32 +52,32 @@ function updateCurrentIndex() {
 function displayCards() {
     
     const elem = document.createElement('div')
-    elem.className = 'inner-card'
+    elem.className = 'card'
     
     
     cards.forEach((card, index) => {
      
         elem.innerHTML = `
-        
-            <div class="card-front">
-                <p>
-                    ${card.front}
-                </p>
-            </div>
-            <div class="card-back">
-                <p>
-                    ${card.back}
-                </p>
-            </div>
-      
+        <div class="inner-card">
+        <div class="inner-card-front">
+          <p>
+            ${card.front}
+          </p>
+        </div>
+        <div class="inner-card-back">
+          <p>
+            ${card.back}
+          </p>
+        </div>
+      </div>
         `;
 
         containerElem.appendChild(elem)
         
-        containerElem.children[0].className = 'inner-card visible'
+        containerElem.children[0].className = 'card visible'
 
         if(cards.length > 1 && currentCardIndex > 0 ) {
-            containerElem.children[0].className = 'inner-card'
+            containerElem.children[0].className = 'card'
         } 
         
 

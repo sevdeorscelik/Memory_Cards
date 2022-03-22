@@ -75,47 +75,27 @@ body .container .cards-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: transparent;
-  width: 300px;
-  height: 200px;
-  border: 1px solid #f1f1f1;
-  -webkit-perspective: 1000px;
-          perspective: 1000px;
 }
 
-body .container .cards-container:hover {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
-}
-
-body .container .cards-container .inner-card {
-  position: relative;
-  width: 100%;
-  height: 100%;
+body .container .cards-container .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   text-align: center;
-  -webkit-transition: -webkit-transform 0.8s;
-  transition: -webkit-transform 0.8s;
-  transition: transform 0.8s;
-  transition: transform 0.8s, -webkit-transform 0.8s;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: yellow;
+  height: 45rem;
+  width: 30rem;
   display: none;
+}
+
+body .container .cards-container .card p {
   font-size: 5rem;
-}
-
-body .container .cards-container .inner-card:hover {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
-}
-
-body .container .cards-container .inner-card .card-front,
-body .container .cards-container .inner-card .card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  /* Safari */
-  backface-visibility: hidden;
 }
 
 body .container .cards-container .visible {
