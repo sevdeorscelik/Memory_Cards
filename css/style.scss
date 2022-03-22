@@ -60,7 +60,7 @@ body {
 
         .cards-container {
   
-            background-color: pink;
+            
             display: flex;
             
             .card{
@@ -71,11 +71,15 @@ body {
                 background-color: yellow;
                 height: 45rem;
                 width: 30rem;
+                display: none;
 
                 p{
                     font-size: 5rem;
                 }
-            }           
+            } 
+            .visible{
+                display: inline-block;
+            }          
                       
         }
 

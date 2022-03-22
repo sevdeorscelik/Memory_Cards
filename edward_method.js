@@ -11,9 +11,6 @@ const backText = document.querySelector('back');
 
 
 
-
-
-
 const currentCardIndex = 0;
 
 const cards = [];

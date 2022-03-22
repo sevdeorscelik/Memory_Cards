@@ -72,7 +72,6 @@ body .container .inputs-container input {
 }
 
 body .container .cards-container {
-  background-color: pink;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -92,10 +91,15 @@ body .container .cards-container .card {
   background-color: yellow;
   height: 45rem;
   width: 30rem;
+  display: none;
 }
 
 body .container .cards-container .card p {
   font-size: 5rem;
+}
+
+body .container .cards-container .visible {
+  display: inline-block;
 }
 
 body .container .buttons {

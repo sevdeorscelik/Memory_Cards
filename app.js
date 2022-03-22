@@ -7,30 +7,38 @@ const buttonLeftElem = document.querySelector('.buttonLeft');
 const buttonRightElem = document.querySelector('.buttonRight');
 
 
-let currentCardIndex = 1;
+let currentCardIndex = 0;
 const cards = []
 
 
 
 
-addButton.addEventListener('click', function (e) {
-    
-    cards.push({
-        front: frontText.value,
-        back: backText.value,
-        visible: false
-    });
 
-    displayCards();
-    updateCurrentIndex();
+buttonLeftElem.addEventListener('click', function(e) {
     
-    frontText.value = ''
-    backText.value = ''
+    currentCardIndex -= 1;
+    updateCurrentIndex();
+
+});
+
+buttonRightElem.addEventListener('click', function (e) {
+
+    currentCardIndex += 1;
+
+   const a = document.querySelectorAll(".card");
+   
+   a[currentCardIndex].className = 'card visible'
+   a[currentCardIndex-1].className = 'card'
+   
+
+    updateCurrentIndex();
+
 });
 
 
+
 function updateCurrentIndex() {
-    currentEl.innerHTML = `${currentCardIndex }/${cards.length} `
+    currentEl.innerHTML = `${currentCardIndex+1  }/${cards.length} `
     
 }
 
@@ -55,78 +63,34 @@ function displayCards() {
       </div>
         `;
 
-        elem.classList = 'card' + (index+1)
         containerElem.appendChild(elem)
 
     })
-
+    
     elem.classList.add('card')
+    document.querySelectorAll(".card")[0].className = 'card visible';
+    
 };
+
+addButton.addEventListener('click', function (e) {
+
+    cards.push({
+        front: frontText.value,
+        back: backText.value,
+        visible: false
+    });
+
+    displayCards();
+    updateCurrentIndex();
+    
+    
+    frontText.value = ''
+    backText.value = ''
+
+    currentCardIndex = 0;
+});
+
 
 console.log(containerElem);
 console.log(cards);
 
-
-buttonLeftElem.addEventListener('click', function(e) {
-    
-    currentCardIndex -= 1;
-    updateCurrentIndex();
-
-});
-
-buttonRightElem.addEventListener('click', function (e) {
-
-    currentCardIndex += 1;
-    updateCurrentIndex();
-    
-});
-
-
-
-
-
-
-/*
-addButton.addEventListener('click', () => {
-    
-
-    const newWord1 = frontWordInput.value
-    const newWord2 = backWordInput.value
-
-    let card1 = document.createElement('div')
-    let card2 = document.createElement('div')
-    
-    card1.innerHTML = newWord1
-    card2.innerHTML= newWord2
-
-    cardsContainer.appendChild(card1)
-    cardsContainer.appendChild(card2)
-
-
-    frontWordInput.value = ''
-    backWordInput.value = ''
-
-
-    card1.classList.add('card1')
-    card2.classList.add('card2')
-    
-   
-    //card turn-back
-    card2.classList.add('block')
-
-    card1.addEventListener('click', () => {
-        card1.classList.add('block')
-        card2.classList.remove('block')
-    })
-
-    
-    card2.addEventListener('click',() => {
-        card1.classList.remove('block')
-        card2.classList.add('block')
-        
-    })
-    console.log(cardsContainer);
-
-})
-
-*/
