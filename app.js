@@ -11,36 +11,6 @@ let currentCardIndex = 0;
 const cards = []
 
 
-buttonRightElem.addEventListener('click', function (e) {
-
-  currentCardIndex++;
-
-  if (currentCardIndex > cards.length - 1) {
-    currentCardIndex = cards.length - 1;
-  }
-
-  containerElem.children[currentCardIndex].classList.add('show')
-  containerElem.children[currentCardIndex - 1].classList.remove('show')
-
-  updateCurrentIndex();
-
-});
-
-buttonLeftElem.addEventListener('click', function (e) {
-  currentCardIndex--;
-
-  if (currentCardIndex < 1) {
-    currentCardIndex = 0;
-  }
-
-  containerElem.children[currentCardIndex + 1].classList.remove('show')
-  containerElem.children[currentCardIndex].classList.add('show')
-
-
-  updateCurrentIndex();
-
-});
-
 
 function updateCurrentIndex() {
   currentEl.innerHTML = `${currentCardIndex+1 }/${cards.length} `
@@ -62,7 +32,7 @@ function displayCards() {
             ${card.front}
           </p>
         </div>
-        <div class="none card-back">
+        <div class="card-back none">
           <p>
             ${card.back}
           </p>
@@ -110,6 +80,7 @@ function displayCards() {
 };
 
 
+//new card create
 
 addButton.addEventListener('click', function (e) {
 
@@ -126,6 +97,38 @@ addButton.addEventListener('click', function (e) {
   frontText.value = ''
   backText.value = ''
 
+
+});
+
+//direction buttons
+
+buttonRightElem.addEventListener('click', function (e) {
+
+  currentCardIndex++;
+
+  if (currentCardIndex > cards.length - 1) {
+    currentCardIndex = cards.length - 1;
+  }
+
+  containerElem.children[currentCardIndex].classList.add('show')
+  containerElem.children[currentCardIndex - 1].classList.remove('show')
+
+  updateCurrentIndex();
+
+});
+
+buttonLeftElem.addEventListener('click', function (e) {
+  currentCardIndex--;
+
+  if (currentCardIndex < 1) {
+    currentCardIndex = 0;
+  }
+
+  containerElem.children[currentCardIndex + 1].classList.remove('show')
+  containerElem.children[currentCardIndex].classList.add('show')
+
+
+  updateCurrentIndex();
 
 });
 
