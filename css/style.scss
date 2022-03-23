@@ -91,15 +91,15 @@ body {
                 -moz-box-shadow: -1px 3px 40px 7px rgba(136, 255, 247, 0.8);
                 box-shadow: -1px 3px 40px 7px rgba(136, 255, 247, 0.8);
                 transition: box-shadow .3s;
-                transition: background-color .2s;
+
 
 
 
                 &:hover {
 
                     border: solid 3px #88FFF7;
-                    background-color: #3EDBF0;
-                    color: #3D087B;
+
+
                     box-shadow: none;
 
                     cursor: pointer;
@@ -158,13 +158,13 @@ body {
                 }
 
                 .card-front {
-                    background-color: #FF6464;
+                   // background-color: #4CD3C2;
 
 
                 }
 
                 .card-back {
-                    background-color: #91C483;
+                   // background-color: #91C483;
 
                 }
 
@@ -185,23 +185,43 @@ body {
             flex-direction: row;
             gap: 2rem;
 
-            button {
+            .btn {
+                text-align: center;
                 font-size: 3rem;
                 height: 5rem;
-
                 width: 5rem;
-                background-color: #88FFF7;
-                border: none;
-                transition: background-color .3s;
-                
+                background-color: transparent;
+                border-radius: 35%;
 
-                &:hover{
+                background: linear-gradient(225deg, #920fd0, #7a0daf);
+                box-shadow: -20px 20px 60px #710ca1,
+                    20px -20px 60px #9f10e3;
+
+                &:hover {
+                    background: linear-gradient(225deg, #7a0daf, #920fd0);
+                    box-shadow: -20px 20px 60px #710ca1,
+                        20px -20px 60px #9f10e3;
+                }
+
+
+
+                i {
+                    color: #fff;
+                    line-height: 5rem;
+
+                }
+
+
+
+
+
+                &:hover {
                     cursor: pointer;
-                    background-color: #72147E;
-                    
-                    
 
-                    
+
+
+
+
                 }
             }
 
@@ -213,21 +233,9 @@ body {
                 font-weight: bold;
             }
 
-            .buttonLeft {
-                clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
-                
+            .buttonLeft {}
 
-
-
-            }
-
-            .buttonRight {
-                clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
-                
-
-                
-
-            }
+            .buttonRight {}
         }
     }
 

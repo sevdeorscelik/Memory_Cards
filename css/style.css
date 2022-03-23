@@ -92,14 +92,10 @@ body .container .inputs-container #add-button {
   transition: -webkit-box-shadow .3s;
   transition: box-shadow .3s;
   transition: box-shadow .3s, -webkit-box-shadow .3s;
-  -webkit-transition: background-color .2s;
-  transition: background-color .2s;
 }
 
 body .container .inputs-container #add-button:hover {
   border: solid 3px #88FFF7;
-  background-color: #3EDBF0;
-  color: #3D087B;
   -webkit-box-shadow: none;
           box-shadow: none;
   cursor: pointer;
@@ -147,14 +143,6 @@ body .container .cards-container .inner-card .card-back {
   cursor: pointer;
 }
 
-body .container .cards-container .inner-card .card-front {
-  background-color: #FF6464;
-}
-
-body .container .cards-container .inner-card .card-back {
-  background-color: #91C483;
-}
-
 body .container .cards-container .inner-card .none {
   display: none;
 }
@@ -174,19 +162,31 @@ body .container .buttons {
   gap: 2rem;
 }
 
-body .container .buttons button {
+body .container .buttons .btn {
+  text-align: center;
   font-size: 3rem;
   height: 5rem;
   width: 5rem;
-  background-color: #88FFF7;
-  border: none;
-  -webkit-transition: background-color .3s;
-  transition: background-color .3s;
+  background-color: transparent;
+  border-radius: 35%;
+  background: linear-gradient(225deg, #920fd0, #7a0daf);
+  -webkit-box-shadow: -20px 20px 60px #710ca1, 20px -20px 60px #9f10e3;
+          box-shadow: -20px 20px 60px #710ca1, 20px -20px 60px #9f10e3;
 }
 
-body .container .buttons button:hover {
+body .container .buttons .btn:hover {
+  background: linear-gradient(225deg, #7a0daf, #920fd0);
+  -webkit-box-shadow: -20px 20px 60px #710ca1, 20px -20px 60px #9f10e3;
+          box-shadow: -20px 20px 60px #710ca1, 20px -20px 60px #9f10e3;
+}
+
+body .container .buttons .btn i {
+  color: #fff;
+  line-height: 5rem;
+}
+
+body .container .buttons .btn:hover {
   cursor: pointer;
-  background-color: #72147E;
 }
 
 body .container .buttons p {
@@ -195,15 +195,5 @@ body .container .buttons p {
   line-height: 5rem;
   text-align: center;
   font-weight: bold;
-}
-
-body .container .buttons .buttonLeft {
-  -webkit-clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
-          clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
-}
-
-body .container .buttons .buttonRight {
-  -webkit-clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
-          clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
 }
 /*# sourceMappingURL=style.css.map */
