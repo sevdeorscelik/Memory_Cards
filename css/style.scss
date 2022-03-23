@@ -20,11 +20,43 @@ body {
     header {
         text-align: center;
         width: 100%;
-        height: 5rem;
+        height: 8rem;
         background-color: #F21170;
+
+
+        ul {
+            //border: solid 1px white;
+            
+
+            height: 8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 5rem;
+            
+
+            li {
+                //border: solid 1px white;
+
+                color: white;
+                font-size: 3rem;
+                font-weight: bold;
+                list-style: none;
+                padding: 1rem;
+                letter-spacing: .3rem;
+
+                cursor: pointer;
+
+                &:hover{
+                    border-bottom: white solid 1px;
+                }
+            }
+        }
     }
 
     .container {
+        margin-top: 2rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -147,7 +179,7 @@ body {
                     font-family: 'Caveat', cursive;
                     color: black;
                     font-weight: bold;
-                    
+
                 }
 
                 .card-front,
@@ -168,7 +200,7 @@ body {
 
                 .card-front {
                     border: dotted 1rem #FECD1A;
-                                    
+
 
                 }
 
@@ -177,7 +209,7 @@ body {
 
                 }
 
-                
+
 
             }
 
@@ -238,10 +270,10 @@ body {
         }
     }
 
-    
-    footer{
-        
-        #clear{
+
+    footer {
+
+        #clear {
             margin: 3rem 0 0 20rem;
             font-size: 2rem;
             background-color: transparent;
@@ -251,22 +283,23 @@ body {
             cursor: pointer;
             width: 20rem;
             height: 5rem;
-            transition: font-size .1s;
-            
+            //transition: font-size .1s;
+
 
             &:active {
-               font-size: 1.8rem;
-                
-            }
-            //&:active i{
-             //   transform: rotateY(180deg);
-            //}
-            
+                font-size: 1.6rem;
 
-            i{
+            }
+
+            //&:active i{
+            //   transform: rotateY(180deg);
+            //}
+
+
+            i {
                 color: white;
                 transition: transform .5s;
-                
+
             }
         }
     }

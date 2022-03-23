@@ -10,9 +10,9 @@ const clearBtn = document.querySelector('#clear')
 let currentCardIndex = 0;
 const cards = []
 
+//document.addEventListener("DOMContentLoaded", loadAllCardsToUI);
 
-
-//direction buttons
+//direction buttons--------------------------------------------------------
 
 buttonRightElem.addEventListener('click', function (e) {
 
@@ -26,8 +26,6 @@ buttonRightElem.addEventListener('click', function (e) {
   containerElem.children[currentCardIndex - 1].classList.remove('show')
 
   updateCurrentIndex();
-
-  
 
 });
 
@@ -49,17 +47,18 @@ buttonLeftElem.addEventListener('click', function (e) {
 function updateCurrentIndex() {
   currentEl.innerHTML = `${currentCardIndex+1 }/${cards.length} `
 
+
 }
 
-function displayCards() {
-  
+function displayCards(cards) {
+
   const elem = document.createElement('div')
   elem.className = 'inner-card'
 
 
   cards.forEach((card) => {
 
-    //create a card
+    //create a card ---------------------------------------------
     elem.innerHTML = `
     
         <div class="card-front ">
@@ -76,8 +75,7 @@ function displayCards() {
 
     containerElem.appendChild(elem)
 
-
-    //crousel 
+    //crousel ---------------------------------------------------
 
     containerElem.children[0].className = 'inner-card show'
 
@@ -91,35 +89,32 @@ function displayCards() {
     const innerCard = document.getElementsByClassName('inner-card')
 
     //innerCard.addEventListener('click', (e) => {
-      //innerCard.style.transform = 'rotateY(180deg);'
-      //innerCard.style.transition = 'transform 2s'
+    //innerCard.style.transform = 'rotateY(180deg);'
+    //innerCard.style.transition = 'transform 2s'
     //})
-    
 
-    //turn back the card
+
+    //turn back the card-------------------------------------------
     frontCards.forEach(frontCard => {
       frontCard.addEventListener('click', function (e) {
-        
+
         frontCard.classList.add('none')
         backCards[currentCardIndex].classList.remove('none')
-         
+
       })
     });
 
-    
-    //turn front the card    
+
+    //turn front the card  ------------------------------------------  
     backCards.forEach(backCard => {
       backCard.addEventListener('click', function (e) {
         backCard.classList.add('none')
 
         frontCards[currentCardIndex].classList.remove('none')
-        
+
       })
     })
-    
-
   })
-
 };
 
 
@@ -130,61 +125,62 @@ addButton.addEventListener('click', function (e) {
   cards.push({
     front: frontText.value,
     back: backText.value,
-    });
-    
+  });
 
 
-  displayCards();
 
+  displayCards(cards);
   updateCurrentIndex();
-  addTodoToStorage(cards[cards.length-1])
- 
+
+  //addCardsToStorage(cards)
+
+
 
   frontText.value = ''
   backText.value = ''
-
 
 });
 
 
 
-// Get cards from local storage
+/*
+// Get cards from local storage-------------------------
 
-function getTodosFromStorage() {  
+function getCardsFromStorage() {
   let words;
 
-  if ( localStorage.getItem("cards") === null) {
+  if (localStorage.getItem("cards") === null) {
     words = [];
-  
+
   } else {
     words = JSON.parse(localStorage.getItem("cards"));
   }
   return words;
-  
+
 }
 
 
-// Add card to local storage
+// Add card to local storage-----------------------------
 
-function addTodoToStorage(cards)  {
-  let words = getTodosFromStorage();
+function addCardsToStorage(cards) {
+  let words = getCardsFromStorage();
 
   words.push(cards);
 
   localStorage.setItem("cards", JSON.stringify(words));
 }
 
-function loadAllTodosToUI(){
-  let words = getTodosFromStorage();
+//add card from local storage to ui-----------------------
 
-  words.forEach(word => {
-      displayCards(word);
-  });
+function loadAllCardsToUI() {
+  let words = getCardsFromStorage();
+  console.log(words[words.length - 1]);
+  displayCards(words[words.length - 1]);
+
+ 
 }
 
-document.addEventListener("DOMContentLoaded", loadAllTodosToUI);
-
-
+*/
 // Clear cards button
 clearBtn.addEventListener('click', () => {
   localStorage.clear();
