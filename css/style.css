@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -11,14 +12,17 @@
 
 body {
   font-size: 1.6rem;
-  background-color: #f1f1f1;
+  height: 100vh;
+  background: #af2ed4;
+  background: -webkit-gradient(linear, left top, right top, color-stop(34%, #af2ed4), color-stop(65%, #6d25dd));
+  background: linear-gradient(90deg, #af2ed4 34%, #6d25dd 65%);
 }
 
 body header {
   text-align: center;
   width: 100%;
   height: 5rem;
-  background-color: lightgreen;
+  background-color: #F21170;
 }
 
 body .container {
@@ -38,40 +42,116 @@ body .container {
 }
 
 body .container .inputs-container {
-  background-color: pink;
   margin: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: 8rem;
 }
 
-body .container .inputs-container .input label {
+body .container .inputs-container .inputs .input label {
+  font-size: 3rem;
+  margin-right: 2rem;
+  font-weight: bold;
+  color: #B5FFD9;
+}
+
+body .container .inputs-container .inputs .input .text {
+  width: 30rem;
+  border-style: none;
+  color: #88E0EF;
+  border-bottom: solid 3px #B5FFD9;
+  font-size: 5rem;
+  background-color: transparent;
+  font-family: 'Caveat', cursive;
+}
+
+body .container .inputs-container .inputs .input .text:focus {
+  outline: none;
+}
+
+body .container .inputs-container #add-button {
+  height: 8.5rem;
+  width: 8.5rem;
   font-size: 2.5rem;
   font-weight: bold;
+  padding: rem;
+  border: dotted 3px #88E0EF;
+  color: #88FFF7;
+  background-color: transparent;
+  border-radius: 50%;
+  -webkit-box-shadow: -1px 7px 40px 7px rgba(136, 255, 247, 0.8);
+  box-shadow: -1px 3px 40px 7px rgba(136, 255, 247, 0.8);
+  -webkit-transition: -webkit-box-shadow .3s;
+  transition: -webkit-box-shadow .3s;
+  transition: box-shadow .3s;
+  transition: box-shadow .3s, -webkit-box-shadow .3s;
 }
 
-body .container .inputs-container .input input {
-  height: 5rem;
-  width: 30rem;
-}
-
-body .container .inputs-container input {
-  font-size: 3rem;
-  padding: .5rem;
+body .container .inputs-container #add-button:hover {
+  border: solid 3px #88FFF7;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  cursor: pointer;
 }
 
 body .container .cards-container {
+  margin: 10rem 0 3rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 25rem;
+  width: 60rem;
+}
+
+body .container .cards-container .inner-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 25rem;
+  width: 60rem;
+  display: none;
+  position: relative;
+}
+
+body .container .cards-container .inner-card p {
+  font-size: 7rem;
+  font-family: 'Caveat', cursive;
+  color: white;
+  font-weight: bold;
+}
+
+body .container .cards-container .inner-card .card-front,
+body .container .cards-container .inner-card .card-back {
   width: 100%;
+  height: 100%;
+  position: absolute;
+  line-height: 25rem;
+  cursor: pointer;
+}
+
+body .container .cards-container .inner-card .none {
+  display: none;
+}
+
+body .container .cards-container .show {
+  display: inline-block;
+}
+
+body .container .buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -79,27 +159,41 @@ body .container .cards-container {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  gap: 2rem;
 }
 
-body .container .cards-container .card1, body .container .cards-container .card2 {
-  background-color: pink;
-  border: solid 1px brown;
-  font-size: 5rem;
-  width: 30rem;
-  height: 40rem;
+body .container .buttons .btn {
   text-align: center;
-  line-height: 40rem;
-  cursor: pointer;
-  margin: 1rem;
+  font-size: 3rem;
+  height: 5rem;
+  width: 5rem;
+  background-color: transparent;
+  border-radius: 35%;
+  background: linear-gradient(225deg, #920fd0, #7a0daf);
+  -webkit-box-shadow: -20px 20px 60px #710ca1, 20px -20px 60px #9f10e3;
+          box-shadow: -20px 20px 60px #710ca1, 20px -20px 60px #9f10e3;
 }
 
-body .container .cards-container .block {
-  display: none;
+body .container .buttons .btn:hover {
+  background: linear-gradient(225deg, #7a0daf, #920fd0);
+  -webkit-box-shadow: -20px 20px 60px #710ca1, 20px -20px 60px #9f10e3;
+          box-shadow: -20px 20px 60px #710ca1, 20px -20px 60px #9f10e3;
+}
+
+body .container .buttons .btn i {
+  color: #fff;
+  line-height: 5rem;
+}
+
+body .container .buttons .btn:hover {
+  cursor: pointer;
+}
+
+body .container .buttons p {
+  width: 5rem;
+  font-size: 2rem;
+  line-height: 5rem;
+  text-align: center;
+  font-weight: bold;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,103 +1,139 @@
-const frontWordInput = document.querySelector('#front-word')
-const backWordInput = document.querySelector('#back-word')
-const cardsContainer = document.querySelector('.cards-container')
 const addButton = document.querySelector('#add-button')
+const frontText = document.querySelector('#front-word')
+const backText = document.querySelector('#back-word')
+const currentEl = document.getElementById('current');
+const containerElem = document.querySelector('.cards-container')
+const buttonLeftElem = document.querySelector('.buttonLeft');
+const buttonRightElem = document.querySelector('.buttonRight');
 
 
-addButton.addEventListener('click', () => {
+let currentCardIndex = 0;
+const cards = []
+
+
+
+function updateCurrentIndex() {
+  currentEl.innerHTML = `${currentCardIndex+1 }/${cards.length} `
+
+}
+
+function displayCards() {
+
+  const elem = document.createElement('div')
+  elem.className = 'inner-card'
+
+
+  cards.forEach((card, index) => {
+
+    //create a card
+    elem.innerHTML = `
+        <div class="card-front ">
+          <p>
+            ${card.front}
+          </p>
+        </div>
+        <div class="card-back none">
+          <p>
+            ${card.back}
+          </p>
+        </div>
+        `;
+
+    containerElem.appendChild(elem)
+
+
+    //crousel 
+
+    containerElem.children[0].className = 'inner-card show'
+
+    if (cards.length > 1 && currentCardIndex > 0) {
+      containerElem.children[0].className = 'inner-card'
+    }
+
+
+    const frontCards = document.querySelectorAll('.card-front')
+    const backCards = document.querySelectorAll('.card-back')
     
 
-    const newWord1 = frontWordInput.value
-    const newWord2 = backWordInput.value
-
-    let card1 = document.createElement('div')
-    let card2 = document.createElement('div')
-    
-    card1.innerHTML = newWord1
-    card2.innerHTML= newWord2
-
-    cardsContainer.appendChild(card1)
-    cardsContainer.appendChild(card2)
-
-
-    frontWordInput.value = ''
-    backWordInput.value = ''
-
-
-    card1.classList.add('card1')
-    card2.classList.add('card2')
-    
-   
-    //card turn-back
-    card2.classList.add('block')
-
-    card1.addEventListener('click', () => {
-        card1.classList.add('block')
-        card2.classList.remove('block')
-    })
+    //turn back the card
+    frontCards.forEach(frontCard => {
+      frontCard.addEventListener('click', function (e) {
+        frontCard.classList.add('none')
+        backCards.forEach(backCard => {
+          backCard.classList.remove('none')
+        })
+      })
+    });
 
     
-    card2.addEventListener('click',() => {
-        card1.classList.remove('block')
-        card2.classList.add('block')
-        
-    })
-    console.log(cardsContainer);
-
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-addButton.addEventListener('click', () => {
-
-    const newWord1 = frontWordInput.value
-    const newWord2 = backWordInput.value
-
-    cardsContainer.innerHTML = `
-        <button class='left'> << </button>
-        <div class='card1'>${newWord1}</div>
-        <div class='card2 block'>${newWord2}</div>
-        <button class='right'>   >> </button>
-
-    `
-    frontWordInput.value = ''
-    backWordInput.value = ''
-
-
-    //card turn-back
-    const card1 = document.querySelector('.card1')
-    const card2 = document.querySelector('.card2')
-
-    card1.addEventListener('click', () => {
-        card1.classList.add('block')
-        card2.classList.remove('block')
+    //turn front the card
+    backCards.forEach(backCard => {
+      backCard.addEventListener('click', function (e) {
+        backCard.classList.add('none')
+        frontCards.forEach(frontCard => {
+          frontCard.classList.remove('none')
+        })
+      })
     })
 
-
-    card2.addEventListener('click', () => {
-        card1.classList.remove('block')
-        card2.classList.add('block')
-
-    })
+  })
+};
 
 
-})
-*/
+//new card create
+
+addButton.addEventListener('click', function (e) {
+
+  cards.push({
+    front: frontText.value,
+    back: backText.value,
+    visible: false
+  });
 
 
+  displayCards();
+  updateCurrentIndex();
+
+  frontText.value = ''
+  backText.value = ''
+
+
+});
+
+//direction buttons
+
+buttonRightElem.addEventListener('click', function (e) {
+
+  currentCardIndex++;
+
+  if (currentCardIndex > cards.length - 1) {
+    currentCardIndex = cards.length - 1;
+  }
+
+  containerElem.children[currentCardIndex].classList.add('show')
+  containerElem.children[currentCardIndex - 1].classList.remove('show')
+
+  updateCurrentIndex();
+
+});
+
+buttonLeftElem.addEventListener('click', function (e) {
+  currentCardIndex--;
+
+  if (currentCardIndex < 1) {
+    currentCardIndex = 0;
+  }
+
+  containerElem.children[currentCardIndex + 1].classList.remove('show')
+  containerElem.children[currentCardIndex].classList.add('show')
+
+
+  updateCurrentIndex();
+
+});
+
+
+
+console.log(containerElem);
+console.log(cards);
 

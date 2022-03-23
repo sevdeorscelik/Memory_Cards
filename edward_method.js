@@ -1,9 +1,15 @@
+const containerElem = document.querySelector('.cards-container')
+const buttonLeftElem = document.querySelector('buttonLeft');
+const buttonRightElem = document.querySelector('buttonRight');
+const currentEl = document.getElementById('current');
+
+
 const addButton = document.querySelector('button');
 const frontText = document.querySelector('front');
 const backText = document.querySelector('back');
-const containerElem = document.querySelector('container');
-const buttonLeftElem = document.querySelector('buttonLeft');
-const buttonRightElem = document.querySelector('buttonRight');
+
+
+
 
 const currentCardIndex = 0;
 
