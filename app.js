@@ -5,12 +5,46 @@ const currentEl = document.getElementById('current');
 const containerElem = document.querySelector('.cards-container')
 const buttonLeftElem = document.querySelector('.buttonLeft');
 const buttonRightElem = document.querySelector('.buttonRight');
-
+const clearBtn = document.querySelector('#clear')
 
 let currentCardIndex = 0;
 const cards = []
 
 
+
+//direction buttons
+
+buttonRightElem.addEventListener('click', function (e) {
+
+  currentCardIndex++;
+
+  if (currentCardIndex > cards.length - 1) {
+    currentCardIndex = cards.length - 1;
+  }
+
+  containerElem.children[currentCardIndex].classList.add('show')
+  containerElem.children[currentCardIndex - 1].classList.remove('show')
+
+  updateCurrentIndex();
+
+  
+
+});
+
+buttonLeftElem.addEventListener('click', function (e) {
+  currentCardIndex--;
+
+  if (currentCardIndex < 1) {
+    currentCardIndex = 0;
+  }
+
+  containerElem.children[currentCardIndex + 1].classList.remove('show')
+  containerElem.children[currentCardIndex].classList.add('show')
+
+
+  updateCurrentIndex();
+
+});
 
 function updateCurrentIndex() {
   currentEl.innerHTML = `${currentCardIndex+1 }/${cards.length} `
@@ -18,15 +52,16 @@ function updateCurrentIndex() {
 }
 
 function displayCards() {
-
+  
   const elem = document.createElement('div')
   elem.className = 'inner-card'
 
 
-  cards.forEach((card, index) => {
+  cards.forEach((card) => {
 
     //create a card
     elem.innerHTML = `
+    
         <div class="card-front ">
           <p>
             ${card.front}
@@ -53,30 +88,38 @@ function displayCards() {
 
     const frontCards = document.querySelectorAll('.card-front')
     const backCards = document.querySelectorAll('.card-back')
+    const innerCard = document.getElementsByClassName('inner-card')
+
+    //innerCard.addEventListener('click', (e) => {
+      //innerCard.style.transform = 'rotateY(180deg);'
+      //innerCard.style.transition = 'transform 2s'
+    //})
     
 
     //turn back the card
     frontCards.forEach(frontCard => {
       frontCard.addEventListener('click', function (e) {
+        
         frontCard.classList.add('none')
-        backCards.forEach(backCard => {
-          backCard.classList.remove('none')
-        })
+        backCards[currentCardIndex].classList.remove('none')
+         
       })
     });
 
     
-    //turn front the card
+    //turn front the card    
     backCards.forEach(backCard => {
       backCard.addEventListener('click', function (e) {
         backCard.classList.add('none')
-        frontCards.forEach(frontCard => {
-          frontCard.classList.remove('none')
-        })
+
+        frontCards[currentCardIndex].classList.remove('none')
+        
       })
     })
+    
 
   })
+
 };
 
 
@@ -87,12 +130,15 @@ addButton.addEventListener('click', function (e) {
   cards.push({
     front: frontText.value,
     back: backText.value,
-    visible: false
-  });
+    });
+    
 
 
   displayCards();
+
   updateCurrentIndex();
+  addTodoToStorage(cards[cards.length-1])
+ 
 
   frontText.value = ''
   backText.value = ''
@@ -100,40 +146,52 @@ addButton.addEventListener('click', function (e) {
 
 });
 
-//direction buttons
 
-buttonRightElem.addEventListener('click', function (e) {
 
-  currentCardIndex++;
+// Get cards from local storage
 
-  if (currentCardIndex > cards.length - 1) {
-    currentCardIndex = cards.length - 1;
+function getTodosFromStorage() {  
+  let words;
+
+  if ( localStorage.getItem("cards") === null) {
+    words = [];
+  
+  } else {
+    words = JSON.parse(localStorage.getItem("cards"));
   }
+  return words;
+  
+}
 
-  containerElem.children[currentCardIndex].classList.add('show')
-  containerElem.children[currentCardIndex - 1].classList.remove('show')
 
-  updateCurrentIndex();
+// Add card to local storage
 
+function addTodoToStorage(cards)  {
+  let words = getTodosFromStorage();
+
+  words.push(cards);
+
+  localStorage.setItem("cards", JSON.stringify(words));
+}
+
+function loadAllTodosToUI(){
+  let words = getTodosFromStorage();
+
+  words.forEach(word => {
+      displayCards(word);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", loadAllTodosToUI);
+
+
+// Clear cards button
+clearBtn.addEventListener('click', () => {
+  localStorage.clear();
+  containerElem.innerHTML = '';
+  window.location.reload();
 });
-
-buttonLeftElem.addEventListener('click', function (e) {
-  currentCardIndex--;
-
-  if (currentCardIndex < 1) {
-    currentCardIndex = 0;
-  }
-
-  containerElem.children[currentCardIndex + 1].classList.remove('show')
-  containerElem.children[currentCardIndex].classList.add('show')
-
-
-  updateCurrentIndex();
-
-});
-
 
 
 console.log(containerElem);
 console.log(cards);
-

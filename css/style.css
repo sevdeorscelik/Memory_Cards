@@ -65,7 +65,7 @@ body .container .inputs-container .inputs .input label {
 body .container .inputs-container .inputs .input .text {
   width: 30rem;
   border-style: none;
-  color: #88E0EF;
+  color: #fff;
   border-bottom: solid 3px #B5FFD9;
   font-size: 5rem;
   background-color: transparent;
@@ -82,22 +82,22 @@ body .container .inputs-container #add-button {
   font-size: 2.5rem;
   font-weight: bold;
   padding: rem;
-  border: dotted 3px #88E0EF;
+  border: solid 3px #88FFF7;
   color: #88FFF7;
   background-color: transparent;
   border-radius: 50%;
-  -webkit-box-shadow: -1px 7px 40px 7px rgba(136, 255, 247, 0.8);
-  box-shadow: -1px 3px 40px 7px rgba(136, 255, 247, 0.8);
-  -webkit-transition: -webkit-box-shadow .3s;
-  transition: -webkit-box-shadow .3s;
-  transition: box-shadow .3s;
-  transition: box-shadow .3s, -webkit-box-shadow .3s;
+  -webkit-transition: -webkit-box-shadow .1s;
+  transition: -webkit-box-shadow .1s;
+  transition: box-shadow .1s;
+  transition: box-shadow .1s, -webkit-box-shadow .1s;
+  -webkit-transition: border .3s;
+  transition: border .3s;
 }
 
-body .container .inputs-container #add-button:hover {
-  border: solid 3px #88FFF7;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+body .container .inputs-container #add-button:active {
+  border: dotted 3px #88E0EF;
+  -webkit-box-shadow: -1px 7px 40px 7px rgba(136, 255, 247, 0.8);
+  box-shadow: -1px 3px 40px 7px rgba(136, 255, 247, 0.8);
   cursor: pointer;
 }
 
@@ -125,12 +125,18 @@ body .container .cards-container .inner-card {
   width: 60rem;
   display: none;
   position: relative;
+  /*
+                &:hover{
+                    transform: rotateY(180deg);
+                   transition: transform 2s;
+                }
+ */
 }
 
 body .container .cards-container .inner-card p {
   font-size: 7rem;
   font-family: 'Caveat', cursive;
-  color: white;
+  color: black;
   font-weight: bold;
 }
 
@@ -145,6 +151,14 @@ body .container .cards-container .inner-card .card-back {
 
 body .container .cards-container .inner-card .none {
   display: none;
+}
+
+body .container .cards-container .inner-card .card-front {
+  border: dotted 1rem #FECD1A;
+}
+
+body .container .cards-container .inner-card .card-back {
+  border: dotted 1rem #FFF591;
 }
 
 body .container .cards-container .show {
@@ -174,7 +188,7 @@ body .container .buttons .btn {
           box-shadow: -20px 20px 60px #710ca1, 20px -20px 60px #9f10e3;
 }
 
-body .container .buttons .btn:hover {
+body .container .buttons .btn:active {
   background: linear-gradient(225deg, #7a0daf, #920fd0);
   -webkit-box-shadow: -20px 20px 60px #710ca1, 20px -20px 60px #9f10e3;
           box-shadow: -20px 20px 60px #710ca1, 20px -20px 60px #9f10e3;
@@ -195,5 +209,31 @@ body .container .buttons p {
   line-height: 5rem;
   text-align: center;
   font-weight: bold;
+}
+
+body footer #clear {
+  margin: 3rem 0 0 20rem;
+  font-size: 2rem;
+  background-color: transparent;
+  color: white;
+  border: solid 2px white;
+  padding: 1rem;
+  cursor: pointer;
+  width: 20rem;
+  height: 5rem;
+  -webkit-transition: font-size .1s;
+  transition: font-size .1s;
+}
+
+body footer #clear:active {
+  font-size: 1.8rem;
+}
+
+body footer #clear i {
+  color: white;
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
 }
 /*# sourceMappingURL=style.css.map */
