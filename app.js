@@ -1,3 +1,7 @@
+import {users} from './users.js';
+
+
+// HTML ELEMENT VARIABLES
 const addButton = document.querySelector('#add-button')
 const frontText = document.querySelector('#front-word')
 const backText = document.querySelector('#back-word')
@@ -5,135 +9,194 @@ const currentEl = document.getElementById('current');
 const containerElem = document.querySelector('.cards-container')
 const buttonLeftElem = document.querySelector('.buttonLeft');
 const buttonRightElem = document.querySelector('.buttonRight');
+const clearBtn = document.querySelector('#clear')
+const btns = document.querySelector('.buttons')
+
+const mainPage = document.querySelector('.container')
+const loginCont = document.querySelector('.login-container')
+
+const homeBtn = document.querySelector('#home')
+const loginBtn = document.querySelector('#login')
 
 
-let currentCardIndex = 0;
-const cards = []
 
+//NAVBAR-UNDERLINE------------------------------
 
-
-function updateCurrentIndex() {
-  currentEl.innerHTML = `${currentCardIndex+1 }/${cards.length} `
-
+if (loginCont.style.visibility === 'hidden') {
+	loginBtn.style.borderBottom = 'none'
+	homeBtn.style.borderBottom = 'solid 2px purple'
+} else {
+	loginBtn.style.borderBottom = 'solid 2px purple'
+	homeBtn.style.borderBottom = 'none'
 }
 
-function displayCards() {
+//PAgES VISIBLITY-------------------------------
+homeBtn.addEventListener('click', function () {
+	loginCont.style.visibility = 'hidden'
+	mainPage.style.visibility = 'visible'
+	clearBtn.style.visibility = 'visible'
 
-  const elem = document.createElement('div')
-  elem.className = 'inner-card'
+	loginBtn.style.borderBottom = 'none'
+	homeBtn.style.borderBottom = 'solid 2px purple'
 
+})
 
-  cards.forEach((card, index) => {
+loginBtn.addEventListener('click', function () {
+	loginCont.style.visibility = 'visible'
+	mainPage.style.visibility = 'hidden'
+	clearBtn.style.visibility = 'hidden'
 
-    //create a card
-    elem.innerHTML = `
-        <div class="card-front ">
-          <p>
-            ${card.front}
-          </p>
-        </div>
-        <div class="card-back none">
-          <p>
-            ${card.back}
-          </p>
-        </div>
-        `;
+	loginBtn.style.borderBottom = 'solid 2px purple'
+	homeBtn.style.borderBottom = 'none'
 
-    containerElem.appendChild(elem)
+})
 
 
-    //crousel 
+//LOGIN FUNC--------------------------------------
 
-    containerElem.children[0].className = 'inner-card show'
+const email = document.querySelector('#mail')
+const password = document.querySelector('#pass')
+const signInBtn = document.querySelector('#button')
 
-    if (cards.length > 1 && currentCardIndex > 0) {
-      containerElem.children[0].className = 'inner-card'
-    }
+signInBtn.addEventListener('click', function () {
+	users.map(user => {
+		if (email.value === '' || password.value === '') {
+			alert('Please enter your email address and password')
+		}else if (user.mail === email.value && user.password === password.value) {
+			loginCont.style.visibility = 'hidden'
+			mainPage.style.visibility = 'visible'
+			clearBtn.style.visibility = 'visible'
 
+			loginBtn.style.borderBottom = 'none'
+			homeBtn.style.borderBottom = 'solid 2px purple'
 
-    const frontCards = document.querySelectorAll('.card-front')
-    const backCards = document.querySelectorAll('.card-back')
-    
+			email.value=''
+			password.value=''
 
-    //turn back the card
-    frontCards.forEach(frontCard => {
-      frontCard.addEventListener('click', function (e) {
-        frontCard.classList.add('none')
-        backCards.forEach(backCard => {
-          backCard.classList.remove('none')
-        })
-      })
-    });
+		}else{
+			alert('User not found!!!')
+			email.value=''
+			password.value=''
+		}
+	})
 
-    
-    //turn front the card
-    backCards.forEach(backCard => {
-      backCard.addEventListener('click', function (e) {
-        backCard.classList.add('none')
-        frontCards.forEach(frontCard => {
-          frontCard.classList.remove('none')
-        })
-      })
-    })
-
-  })
-};
+})
 
 
-//new card create
+// GLOBAL VARIABLES-----------------------------------------
+let currentCardIndex = 0;
+let cards = []
 
+// RIGHT BUTTON
+buttonRightElem.addEventListener('click', function (e) {
+	currentCardIndex++;
+	if (currentCardIndex > cards.length - 1) {
+		currentCardIndex = cards.length - 1;
+	}
+	displayCards();
+});
+
+// LEFT BUTTON
+buttonLeftElem.addEventListener('click', function (e) {
+	currentCardIndex--;
+	if (currentCardIndex < 1) {
+		currentCardIndex = 0;
+	}
+	displayCards();
+});
+
+// ADD BUTTON
 addButton.addEventListener('click', function (e) {
 
-  cards.push({
-    front: frontText.value,
-    back: backText.value,
-    visible: false
-  });
+	cards.push({
+		front: frontText.value,
+		back: backText.value
+	});
+	displayCards();
+	setCardsData(cards[cards.length-1])
+	cardsToUI()
+	frontText.value = '';
+	backText.value = '';
+});
+    cardsToUI()
+// CLEAR BUTTON
+clearBtn.addEventListener('click', () => {
 
-
-  displayCards();
-  updateCurrentIndex();
-
-  frontText.value = ''
-  backText.value = ''
-
-
+	localStorage.removeItem('words');
+	containerElem.innerHTML = '';	
+	window.location.reload();
 });
 
-//direction buttons
+// DISPLAY CARDS
+function displayCards() {
+     //console.log(cards);
+	// add all cards into container
+	containerElem.innerHTML = `
+	${cards.map((card) => {
+		return `
+<div class="card">
+	<div class="card-front">
+		<p>${card.front}</p>
+	</div>
+	<div class="card-back none">
+		<p>${card.back}</p>
+	</div>
+</div>	
+`;
+	}).join('')}
+`;
 
-buttonRightElem.addEventListener('click', function (e) {
+	// add event handlers to front and back of cards
+	const frontCardElems = document.querySelectorAll('.card-front')
+	const backCardElems = document.querySelectorAll('.card-back')
+	frontCardElems.forEach((frontCard, index) => {
+		frontCard.addEventListener('click', (e) => {
+			frontCard.classList.add('none');
+			backCardElems[index].classList.remove('none');
+		});
+	});
+	backCardElems.forEach((backCard, index) => {
+		backCard.addEventListener('click', (e) => {
+			backCard.classList.add('none');
+			frontCardElems[currentCardIndex].classList.remove('none');
+		});
+	});
 
-  currentCardIndex++;
+	// hide all cards except current card
+	const cardElems = document.querySelectorAll('.card');
+	cardElems.forEach(cardElem => cardElem.style.display = 'none');
+	Array.from(cardElems)[currentCardIndex].style.display = 'block';
 
-  if (currentCardIndex > cards.length - 1) {
-    currentCardIndex = cards.length - 1;
-  }
+	currentEl.innerHTML = `${currentCardIndex + 1}/${cards.length} `
+};
 
-  containerElem.children[currentCardIndex].classList.add('show')
-  containerElem.children[currentCardIndex - 1].classList.remove('show')
+//getItem - LocalStorAge
 
-  updateCurrentIndex();
+function getCardsData() {
+	let words;
 
-});
+	if (localStorage.getItem('words') === null) {
+		words = []
+	} else {
+		words = JSON.parse(localStorage.getItem('words'));
+	}
+	return words;
+}
 
-buttonLeftElem.addEventListener('click', function (e) {
-  currentCardIndex--;
+//setItem - LocalStorage
 
-  if (currentCardIndex < 1) {
-    currentCardIndex = 0;
-  }
+function setCardsData(cards) {
+	let words = getCardsData();
 
-  containerElem.children[currentCardIndex + 1].classList.remove('show')
-  containerElem.children[currentCardIndex].classList.add('show')
+	words.push(cards)
 
+	localStorage.setItem("words", JSON.stringify(words));
+}
 
-  updateCurrentIndex();
+//cardsToUI
 
-});
+function cardsToUI() {
+	cards = getCardsData()
+	displayCards();
 
-
-
-console.log(containerElem);
-console.log(cards);
-
+}

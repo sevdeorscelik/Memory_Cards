@@ -1,67 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://kit.fontawesome.com/58e9360fd1.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <header> Memory Cards - Header</header>
+    <header>
+        <ul>
+            <li id="home">Home</li>
+            <li id="login">Login</li>
+        </ul>
+    </header>
+    <main>
 
-    <div class="container">
+        <div class="container">
+            <div class="login-container">
 
-        <div class="inputs-container">
-            <div class="inputs">
-                <div class="input">
 
-                    <label for="front-side">Deutsch : </label>
-                    <input class="text" type="text" id="front-word">
+                <br>
+
+                <input id="mail" type="text" placeholder="&#xf1fa Your email..." id="text" name="text">
+                <br><br>
+
+                <input id="pass" type="password" placeholder="&#xf023 Your password" id="password" name="password">
+
+                <br><br>
+                <button id="button">Sign in</button>
+            </div>
+
+            <div class="inputs-container">
+                <div class="inputs">
+                    <div class="input">
+
+                        <label for="front-side">Deutsch : </label>
+                        <input class="text" type="text" id="front-word">
+                    </div>
+                    <div class="input">
+
+                        <label for="back-side">English &nbsp;: </label>
+                        <input class="text" type="text" id="back-word">
+                    </div>
+
                 </div>
-                <div class="input">
 
-                    <label for="back-side">English &nbsp;: </label>
-                    <input class="text" type="text" id="back-word">
-                </div>
+                <input id="add-button" type="submit" value="+ add ">
+            </div>
+
+            <div class="cards-container">
+                
+            </div>
+            <div class="buttons">
+                <div class="buttonLeft btn "> <i class="fas fa-arrow-left"></i></i> </div>
+                <p id="current">
+                    <!-- 1/5 -->
+                </p>
+                <div class="buttonRight btn"> <i class="fas fa-arrow-right"></i> </div>
 
             </div>
 
-            <input id="add-button" type="submit" value="+ add ">
         </div>
 
-        <div class="cards-container">
-            <!--
-            <div class="inner-card">
-                <div class="card-front">
-                    <p>
-                        ${card.front}
-                     </p>
-                </div>
-                <div class="card-back">
-                    <p>
-                        ${card.back}
-                    </p>
-                </div>
-            </div>
-                -->
-        </div>
-        <div class="buttons">
+    </main>
+    <footer>
+        <button id="clear" class="clear btn">
+            <i class="fas fa-trash"></i> Clear All Cards
+        </button>
 
-            <div class="buttonLeft btn "> <i class="fas fa-arrow-left"></i></i> </div>
-            <p id="current"> <!-- 1/5 --> </p>
-            <div class="buttonRight btn"> <i class="fas fa-arrow-right"></i> </div>
+    </footer>
 
-        </div>
-
-    </div>
-
-    <footer></footer>
-
-    <script src="app.js"></script>
+    <script src="app.js" type='module'></script>
 </body>
 
 </html>

@@ -21,11 +21,43 @@ body {
 body header {
   text-align: center;
   width: 100%;
-  height: 5rem;
-  background-color: #F21170;
+  height: 8rem;
+  background-color: #84F2D6;
 }
 
-body .container {
+body header ul {
+  height: 8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  gap: 5rem;
+}
+
+body header ul li {
+  color: purple;
+  font-size: 3rem;
+  font-weight: bold;
+  list-style: none;
+  padding: 1rem;
+  letter-spacing: 0.3rem;
+  cursor: pointer;
+}
+
+body header ul li:hover {
+  border-bottom: white solid 1px;
+}
+
+body main .container {
+  position: relative;
+  visibility: hidden;
+  margin-top: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -41,7 +73,88 @@ body .container {
           align-items: center;
 }
 
-body .container .inputs-container {
+body main .container .login-container {
+  position: absolute;
+  visibility: visible;
+  font-size: 4rem;
+}
+
+body main .container .login-container input {
+  width: 30rem;
+  border-style: none;
+  color: #fff;
+  border-bottom: solid 3px #66FF66;
+  font-size: 3rem;
+  background-color: transparent;
+  font-family: "Caveat", cursive;
+}
+
+body main .container .login-container input::-webkit-input-placeholder {
+  color: white;
+  font-size: bolder;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+body main .container .login-container input:-ms-input-placeholder {
+  color: white;
+  font-size: bolder;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+body main .container .login-container input::-ms-input-placeholder {
+  color: white;
+  font-size: bolder;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+body main .container .login-container input::placeholder {
+  color: white;
+  font-size: bolder;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+body main .container .login-container input::-webkit-input-placeholder:focus {
+  outline: none;
+}
+
+body main .container .login-container input:-ms-input-placeholder:focus {
+  outline: none;
+}
+
+body main .container .login-container input::-ms-input-placeholder:focus {
+  outline: none;
+}
+
+body main .container .login-container input::placeholder:focus {
+  outline: none;
+}
+
+body main .container .login-container #button {
+  margin-top: 3rem;
+  padding: 1rem;
+  border: none;
+  width: 15rem;
+  color: white;
+  font-size: 2rem;
+  border-radius: 50px;
+  background: transparent;
+  -webkit-box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+          box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  cursor: pointer;
+}
+
+body main .container .login-container #button:active {
+  border-radius: 50px;
+  background: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+body main .container .inputs-container {
   margin: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -55,53 +168,58 @@ body .container .inputs-container {
   gap: 8rem;
 }
 
-body .container .inputs-container .inputs .input label {
+body main .container .inputs-container .inputs .input label {
   font-size: 3rem;
   margin-right: 2rem;
   font-weight: bold;
-  color: #B5FFD9;
+  color: #b5ffd9;
 }
 
-body .container .inputs-container .inputs .input .text {
+body main .container .inputs-container .inputs .input .text {
   width: 30rem;
   border-style: none;
-  color: #88E0EF;
-  border-bottom: solid 3px #B5FFD9;
+  color: #fff;
+  border-bottom: solid 3px #b5ffd9;
   font-size: 5rem;
   background-color: transparent;
-  font-family: 'Caveat', cursive;
+  font-family: "Caveat", cursive;
 }
 
-body .container .inputs-container .inputs .input .text:focus {
+body main .container .inputs-container .inputs .input .text:focus {
   outline: none;
 }
 
-body .container .inputs-container #add-button {
-  height: 8.5rem;
-  width: 8.5rem;
-  font-size: 2.5rem;
+body main .container .inputs-container #add-button {
+  -webkit-box-shadow: 0px 10px 14px -7px #276873;
+          box-shadow: 0px 10px 14px -7px #276873;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #b5ffd9), to(#408c99));
+  background: linear-gradient(to bottom, #b5ffd9 5%, #408c99 100%);
+  background-color: #b5ffd9;
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: purple;
+  font-family: Arial;
+  font-size: 20px;
   font-weight: bold;
-  padding: rem;
-  border: dotted 3px #88E0EF;
-  color: #88FFF7;
-  background-color: transparent;
-  border-radius: 50%;
-  -webkit-box-shadow: -1px 7px 40px 7px rgba(136, 255, 247, 0.8);
-  box-shadow: -1px 3px 40px 7px rgba(136, 255, 247, 0.8);
-  -webkit-transition: -webkit-box-shadow .3s;
-  transition: -webkit-box-shadow .3s;
-  transition: box-shadow .3s;
-  transition: box-shadow .3s, -webkit-box-shadow .3s;
+  padding: 13px 32px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #3d768a;
 }
 
-body .container .inputs-container #add-button:hover {
-  border: solid 3px #88FFF7;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+body main .container .inputs-container #add-button:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #408c99), to(#b5ffd9));
+  background: linear-gradient(to bottom, #408c99 5%, #b5ffd9 100%);
+  background-color: #408c99;
+}
+
+body main .container .inputs-container #add-button:active {
+  position: relative;
+  top: 1px;
   cursor: pointer;
 }
 
-body .container .cards-container {
+body main .container .cards-container {
   margin: 10rem 0 3rem 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -110,10 +228,7 @@ body .container .cards-container {
   width: 60rem;
 }
 
-body .container .cards-container .inner-card {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+body main .container .cards-container .card {
   text-align: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -125,33 +240,54 @@ body .container .cards-container .inner-card {
   width: 60rem;
   display: none;
   position: relative;
+  /*&:hover{
+                    transform: rotateY(180deg);
+                   transition: transform 2s;
+                }*/
 }
 
-body .container .cards-container .inner-card p {
-  font-size: 7rem;
-  font-family: 'Caveat', cursive;
-  color: white;
-  font-weight: bold;
-}
-
-body .container .cards-container .inner-card .card-front,
-body .container .cards-container .inner-card .card-back {
+body main .container .cards-container .card .card-front,
+body main .container .cards-container .card .card-back {
   width: 100%;
   height: 100%;
   position: absolute;
   line-height: 25rem;
   cursor: pointer;
+  -webkit-box-shadow: 0 1px 10px black;
+          box-shadow: 0 1px 10px black;
 }
 
-body .container .cards-container .inner-card .none {
+body main .container .cards-container .card .none {
   display: none;
 }
 
-body .container .cards-container .show {
+body main .container .cards-container .card .card-front {
+  background-color: lightblue;
+  color: purple;
+}
+
+body main .container .cards-container .card .card-front p {
+  font-size: 7rem;
+  font-family: "Caveat", cursive;
+  font-weight: bold;
+}
+
+body main .container .cards-container .card .card-back {
+  background-color: purple;
+}
+
+body main .container .cards-container .card .card-back p {
+  font-size: 7rem;
+  font-family: "Caveat", cursive;
+  color: white;
+  font-weight: bold;
+}
+
+body main .container .cards-container .show {
   display: inline-block;
 }
 
-body .container .buttons {
+body main .container .buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -162,7 +298,7 @@ body .container .buttons {
   gap: 2rem;
 }
 
-body .container .buttons .btn {
+body main .container .buttons .btn {
   text-align: center;
   font-size: 3rem;
   height: 5rem;
@@ -174,26 +310,51 @@ body .container .buttons .btn {
           box-shadow: -20px 20px 60px #710ca1, 20px -20px 60px #9f10e3;
 }
 
-body .container .buttons .btn:hover {
+body main .container .buttons .btn:active {
   background: linear-gradient(225deg, #7a0daf, #920fd0);
   -webkit-box-shadow: -20px 20px 60px #710ca1, 20px -20px 60px #9f10e3;
           box-shadow: -20px 20px 60px #710ca1, 20px -20px 60px #9f10e3;
 }
 
-body .container .buttons .btn i {
+body main .container .buttons .btn i {
   color: #fff;
   line-height: 5rem;
 }
 
-body .container .buttons .btn:hover {
+body main .container .buttons .btn:hover {
   cursor: pointer;
 }
 
-body .container .buttons p {
+body main .container .buttons p {
   width: 5rem;
   font-size: 2rem;
   line-height: 5rem;
   text-align: center;
   font-weight: bold;
+}
+
+body footer #clear {
+  visibility: hidden;
+  margin: 3rem 0 0 20rem;
+  font-size: 2rem;
+  background-color: transparent;
+  color: white;
+  border: solid 2px white;
+  padding: 1rem;
+  cursor: pointer;
+  width: 20rem;
+  height: 5rem;
+}
+
+body footer #clear:active {
+  font-size: 1.6rem;
+}
+
+body footer #clear i {
+  color: white;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
 }
 /*# sourceMappingURL=style.css.map */
