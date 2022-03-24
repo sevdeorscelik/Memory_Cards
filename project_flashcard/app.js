@@ -17,7 +17,7 @@ const loginCont = document.querySelector('.login-container')
 const homeBtn = document.querySelector('#home')
 const loginBtn = document.querySelector('#login')
 
-document.addEventListener("DOMContentLoaded", cardsToUI);
+
 
 //NAVBAR-UNDERLINE------------------------------
 
@@ -71,8 +71,6 @@ signInBtn.addEventListener('click', function () {
 
 			email.value=''
 			password.value=''
-
-			
 
 
 
@@ -172,10 +170,10 @@ function displayCards() {
 };
 
 //getItem - LocalStorAge
-let words;
 
 function getCardsData() {
-	
+	let words;
+
 	if (localStorage.getItem('words') === null) {
 		words = []
 	} else {

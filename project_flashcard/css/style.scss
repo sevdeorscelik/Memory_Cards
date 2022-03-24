@@ -53,6 +53,7 @@ body {
 
 	main {
 
+
 		.container {
 			position: relative;
 			visibility: hidden;
@@ -68,7 +69,9 @@ body {
 				visibility: visible;
 				font-size: 4rem;
 
+
 				//padding: 3rem;
+
 
 				input {
 					width: 30rem;
@@ -202,10 +205,6 @@ body {
 					display: none;
 
 					position: relative;
-					
-					;
-
-					
 
 
 					/*&:hover{
@@ -227,7 +226,6 @@ body {
 						position: absolute;
 						line-height: 25rem;
 						cursor: pointer;
-						box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
 					}
 
 					.none {
@@ -237,12 +235,12 @@ body {
 					.card-front {
 						background-color: turquoise;
 						color: black;
-						
+						border: solid 5px purple;
 					}
 
 					.card-back {
 						background-color: purple;
-						
+						border: solid 5px turquoise;
 						color: white;
 					}
 				}
