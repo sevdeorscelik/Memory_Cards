@@ -22,7 +22,7 @@ body header {
   text-align: center;
   width: 100%;
   height: 8rem;
-  background-color: #F21170;
+  background-color: #f21170;
 }
 
 body header ul {
@@ -46,7 +46,7 @@ body header ul li {
   font-weight: bold;
   list-style: none;
   padding: 1rem;
-  letter-spacing: .3rem;
+  letter-spacing: 0.3rem;
   cursor: pointer;
 }
 
@@ -54,7 +54,9 @@ body header ul li:hover {
   border-bottom: white solid 1px;
 }
 
-body .container {
+body main .container {
+  position: relative;
+  visibility: hidden;
   margin-top: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -71,7 +73,65 @@ body .container {
           align-items: center;
 }
 
-body .container .inputs-container {
+body main .container .login-container {
+  position: absolute;
+  visibility: visible;
+  font-size: 4rem;
+}
+
+body main .container .login-container input {
+  width: 30rem;
+  border-style: none;
+  color: #fff;
+  border-bottom: solid 3px #66FF66;
+  font-size: 5rem;
+  background-color: transparent;
+  font-family: "Caveat", cursive;
+  text-align: center;
+}
+
+body main .container .login-container input::-webkit-input-placeholder {
+  color: white;
+}
+
+body main .container .login-container input:-ms-input-placeholder {
+  color: white;
+}
+
+body main .container .login-container input::-ms-input-placeholder {
+  color: white;
+}
+
+body main .container .login-container input::placeholder {
+  color: white;
+}
+
+body main .container .login-container input:focus {
+  outline: none;
+}
+
+body main .container .login-container #button {
+  margin-top: 3rem;
+  padding: 1rem;
+  border: none;
+  width: 15rem;
+  color: white;
+  font-size: 2rem;
+  border-radius: 50px;
+  background: transparent;
+  -webkit-box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+          box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  cursor: pointer;
+}
+
+body main .container .login-container #button:active {
+  border-radius: 50px;
+  background: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+body main .container .inputs-container {
   margin: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -85,53 +145,53 @@ body .container .inputs-container {
   gap: 8rem;
 }
 
-body .container .inputs-container .inputs .input label {
+body main .container .inputs-container .inputs .input label {
   font-size: 3rem;
   margin-right: 2rem;
   font-weight: bold;
-  color: #B5FFD9;
+  color: #b5ffd9;
 }
 
-body .container .inputs-container .inputs .input .text {
+body main .container .inputs-container .inputs .input .text {
   width: 30rem;
   border-style: none;
   color: #fff;
-  border-bottom: solid 3px #B5FFD9;
+  border-bottom: solid 3px #b5ffd9;
   font-size: 5rem;
   background-color: transparent;
-  font-family: 'Caveat', cursive;
+  font-family: "Caveat", cursive;
 }
 
-body .container .inputs-container .inputs .input .text:focus {
+body main .container .inputs-container .inputs .input .text:focus {
   outline: none;
 }
 
-body .container .inputs-container #add-button {
+body main .container .inputs-container #add-button {
   height: 8.5rem;
   width: 8.5rem;
   font-size: 2.5rem;
   font-weight: bold;
   padding: rem;
-  border: solid 3px #88FFF7;
-  color: #88FFF7;
+  border: solid 3px #88fff7;
+  color: #88fff7;
   background-color: transparent;
   border-radius: 50%;
-  -webkit-transition: -webkit-box-shadow .1s;
-  transition: -webkit-box-shadow .1s;
-  transition: box-shadow .1s;
-  transition: box-shadow .1s, -webkit-box-shadow .1s;
-  -webkit-transition: border .3s;
-  transition: border .3s;
+  -webkit-transition: -webkit-box-shadow 0.1s;
+  transition: -webkit-box-shadow 0.1s;
+  transition: box-shadow 0.1s;
+  transition: box-shadow 0.1s, -webkit-box-shadow 0.1s;
+  -webkit-transition: border 0.3s;
+  transition: border 0.3s;
 }
 
-body .container .inputs-container #add-button:active {
-  border: dotted 3px #88E0EF;
+body main .container .inputs-container #add-button:active {
+  border: dotted 3px #88e0ef;
   -webkit-box-shadow: -1px 7px 40px 7px rgba(136, 255, 247, 0.8);
   box-shadow: -1px 3px 40px 7px rgba(136, 255, 247, 0.8);
   cursor: pointer;
 }
 
-body .container .cards-container {
+body main .container .cards-container {
   margin: 10rem 0 3rem 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -140,10 +200,7 @@ body .container .cards-container {
   width: 60rem;
 }
 
-body .container .cards-container .inner-card {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+body main .container .cards-container .card {
   text-align: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -160,18 +217,18 @@ body .container .cards-container .inner-card {
                     transform: rotateY(180deg);
                    transition: transform 2s;
                 }
- */
+ 					*/
 }
 
-body .container .cards-container .inner-card p {
+body main .container .cards-container .card p {
   font-size: 7rem;
-  font-family: 'Caveat', cursive;
+  font-family: "Caveat", cursive;
   color: black;
   font-weight: bold;
 }
 
-body .container .cards-container .inner-card .card-front,
-body .container .cards-container .inner-card .card-back {
+body main .container .cards-container .card .card-front,
+body main .container .cards-container .card .card-back {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -179,23 +236,23 @@ body .container .cards-container .inner-card .card-back {
   cursor: pointer;
 }
 
-body .container .cards-container .inner-card .none {
+body main .container .cards-container .card .none {
   display: none;
 }
 
-body .container .cards-container .inner-card .card-front {
-  border: dotted 1rem #FECD1A;
+body main .container .cards-container .card .card-front {
+  border: dotted 1rem #fecd1a;
 }
 
-body .container .cards-container .inner-card .card-back {
-  border: dotted 1rem #FFF591;
+body main .container .cards-container .card .card-back {
+  border: dotted 1rem #fff591;
 }
 
-body .container .cards-container .show {
+body main .container .cards-container .show {
   display: inline-block;
 }
 
-body .container .buttons {
+body main .container .buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -206,7 +263,7 @@ body .container .buttons {
   gap: 2rem;
 }
 
-body .container .buttons .btn {
+body main .container .buttons .btn {
   text-align: center;
   font-size: 3rem;
   height: 5rem;
@@ -218,22 +275,22 @@ body .container .buttons .btn {
           box-shadow: -20px 20px 60px #710ca1, 20px -20px 60px #9f10e3;
 }
 
-body .container .buttons .btn:active {
+body main .container .buttons .btn:active {
   background: linear-gradient(225deg, #7a0daf, #920fd0);
   -webkit-box-shadow: -20px 20px 60px #710ca1, 20px -20px 60px #9f10e3;
           box-shadow: -20px 20px 60px #710ca1, 20px -20px 60px #9f10e3;
 }
 
-body .container .buttons .btn i {
+body main .container .buttons .btn i {
   color: #fff;
   line-height: 5rem;
 }
 
-body .container .buttons .btn:hover {
+body main .container .buttons .btn:hover {
   cursor: pointer;
 }
 
-body .container .buttons p {
+body main .container .buttons p {
   width: 5rem;
   font-size: 2rem;
   line-height: 5rem;
@@ -242,6 +299,7 @@ body .container .buttons p {
 }
 
 body footer #clear {
+  visibility: hidden;
   margin: 3rem 0 0 20rem;
   font-size: 2rem;
   background-color: transparent;
@@ -259,9 +317,9 @@ body footer #clear:active {
 
 body footer #clear i {
   color: white;
-  -webkit-transition: -webkit-transform .5s;
-  transition: -webkit-transform .5s;
-  transition: transform .5s;
-  transition: transform .5s, -webkit-transform .5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
 }
 /*# sourceMappingURL=style.css.map */
