@@ -1,4 +1,4 @@
-# Memory_Cards
+# Flash_Cards
 ## Tools
 
 - Frontend : HTML, Sass, JS, DOM
