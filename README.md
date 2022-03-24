@@ -20,6 +20,8 @@
 
 - [https://flashcard-project.netlify.app/]
 
+<img src="ss-login.png" height="400" /> <img src="images/ss.png" height="400"/>
+
 
 
 
