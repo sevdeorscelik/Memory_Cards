@@ -22,7 +22,7 @@ body header {
   text-align: center;
   width: 100%;
   height: 8rem;
-  background-color: #f21170;
+  background-color: #84F2D6;
 }
 
 body header ul {
@@ -41,7 +41,7 @@ body header ul {
 }
 
 body header ul li {
-  color: white;
+  color: purple;
   font-size: 3rem;
   font-weight: bold;
   list-style: none;
@@ -84,10 +84,9 @@ body main .container .login-container input {
   border-style: none;
   color: #fff;
   border-bottom: solid 3px #66FF66;
-  font-size: 5rem;
+  font-size: 3rem;
   background-color: transparent;
   font-family: "Caveat", cursive;
-  text-align: center;
 }
 
 body main .container .login-container input::-webkit-input-placeholder {
@@ -241,11 +240,15 @@ body main .container .cards-container .card .none {
 }
 
 body main .container .cards-container .card .card-front {
-  border: dotted 1rem #fecd1a;
+  background-color: turquoise;
+  color: black;
+  border: solid 5px purple;
 }
 
 body main .container .cards-container .card .card-back {
-  border: dotted 1rem #fff591;
+  background-color: purple;
+  border: solid 5px turquoise;
+  color: white;
 }
 
 body main .container .cards-container .show {

@@ -20,7 +20,7 @@ body {
 		text-align: center;
 		width: 100%;
 		height: 8rem;
-		background-color: #f21170;
+		background-color: #84F2D6;
 
 		ul {
 			//border: solid 1px white;
@@ -35,7 +35,7 @@ body {
 			li {
 				//border: solid 1px white;
 
-				color: white;
+				color: purple;
 				font-size: 3rem;
 				font-weight: bold;
 				list-style: none;
@@ -78,15 +78,13 @@ body {
 					border-style: none;
 					color: #fff;
 					border-bottom: solid 3px #66FF66;
-					font-size: 5rem;
+					font-size: 3rem;
 					background-color: transparent;
 					font-family: "Caveat", cursive;
-					text-align: center;
-
+					
 					&::placeholder {
 
 						color: white;
-
 					}
 
 					&:focus {
@@ -119,8 +117,6 @@ body {
 						box-shadow: none;
 					}
 				}
-
-
 
 			}
 
@@ -235,11 +231,15 @@ body {
 					}
 
 					.card-front {
-						border: dotted 1rem #fecd1a;
+						background-color: turquoise  ;
+						color: black;
+						border: solid 5px purple;
 					}
 
 					.card-back {
-						border: dotted 1rem #fff591;
+						background-color: purple;
+						border: solid 5px turquoise;
+						color: white;
 					}
 				}
 

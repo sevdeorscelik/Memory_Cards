@@ -1,9 +1,5 @@
-import {
-	users
-} from './users.js';
-import {
-	pages
-} from "./pages.js";
+import {users} from './users.js';
+
 
 // HTML ELEMENT VARIABLES
 const addButton = document.querySelector('#add-button')
@@ -23,13 +19,24 @@ const loginBtn = document.querySelector('#login')
 
 
 
+//NAVBAR-UNDERLINE------------------------------
+
+if (loginCont.style.visibility === 'hidden') {
+	loginBtn.style.borderBottom = 'none'
+	homeBtn.style.borderBottom = 'solid 2px purple'
+} else {
+	loginBtn.style.borderBottom = 'solid 2px purple'
+	homeBtn.style.borderBottom = 'none'
+}
+
+//PAHES VISIBLITY-------------------------------
 homeBtn.addEventListener('click', function () {
 	loginCont.style.visibility = 'hidden'
 	mainPage.style.visibility = 'visible'
 	clearBtn.style.visibility = 'visible'
 
 	loginBtn.style.borderBottom = 'none'
-	homeBtn.style.borderBottom = 'solid 2px white'
+	homeBtn.style.borderBottom = 'solid 2px purple'
 
 })
 
@@ -38,13 +45,13 @@ loginBtn.addEventListener('click', function () {
 	mainPage.style.visibility = 'hidden'
 	clearBtn.style.visibility = 'hidden'
 
-	loginBtn.style.borderBottom = 'solid 2px white'
+	loginBtn.style.borderBottom = 'solid 2px purple'
 	homeBtn.style.borderBottom = 'none'
 
 })
 
 
-//LOGIN FUNC
+//LOGIN FUNC--------------------------------------
 
 const email = document.querySelector('#mail')
 const password = document.querySelector('#pass')
@@ -52,23 +59,25 @@ const signInBtn = document.querySelector('#button')
 
 signInBtn.addEventListener('click', function () {
 	users.map(user => {
-		if (user.mail === email.value && user.password === password.value) {
+		if (email.value === '' || password.value === '') {
+			alert('Please enter your email address and password')
+		}else if (user.mail === email.value && user.password === password.value) {
 			loginCont.style.visibility = 'hidden'
 			mainPage.style.visibility = 'visible'
 			clearBtn.style.visibility = 'visible'
 
 			loginBtn.style.borderBottom = 'none'
-	homeBtn.style.borderBottom = 'solid 2px white'
+			homeBtn.style.borderBottom = 'solid 2px purple'
 
+		}else{
+			alert('User not found!!!')
 		}
 	})
 
 })
 
 
-
-
-// GLOBAL VARIABLES
+// GLOBAL VARIABLES-----------------------------------------
 let currentCardIndex = 0;
 const cards = []
 
