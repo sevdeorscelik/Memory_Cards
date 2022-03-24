@@ -211,12 +211,10 @@ body main .container .cards-container .card {
   width: 60rem;
   display: none;
   position: relative;
-  /*
-                &:hover{
+  /*&:hover{
                     transform: rotateY(180deg);
                    transition: transform 2s;
-                }
- 					*/
+                }*/
 }
 
 body main .container .cards-container .card p {
