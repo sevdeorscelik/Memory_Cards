@@ -1,6 +1,0 @@
-- x fix first click error: Uncaught TypeError: containerElem.children[(currentCardIndex - 1)] is undefined 
-
-- rename all element variables
-- arrow functions
-- if empty dont' add
-- do localStorage

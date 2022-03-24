@@ -17,7 +17,7 @@ const loginCont = document.querySelector('.login-container')
 const homeBtn = document.querySelector('#home')
 const loginBtn = document.querySelector('#login')
 
-document.addEventListener("DOMContentLoaded", cardsToUI);
+
 
 //NAVBAR-UNDERLINE------------------------------
 
@@ -72,10 +72,6 @@ signInBtn.addEventListener('click', function () {
 			email.value=''
 			password.value=''
 
-			
-
-
-
 		}else{
 			alert('User not found!!!')
 			email.value=''
@@ -88,7 +84,7 @@ signInBtn.addEventListener('click', function () {
 
 // GLOBAL VARIABLES-----------------------------------------
 let currentCardIndex = 0;
-const cards = []
+let cards = []
 
 // RIGHT BUTTON
 buttonRightElem.addEventListener('click', function (e) {
@@ -117,20 +113,23 @@ addButton.addEventListener('click', function (e) {
 	});
 	displayCards();
 	setCardsData(cards[cards.length-1])
+	cardsToUI()
 	frontText.value = '';
 	backText.value = '';
 });
-
+    cardsToUI()
 // CLEAR BUTTON
 clearBtn.addEventListener('click', () => {
 	localStorage.clear();
 	containerElem.innerHTML = '';
+	
+
 	//window.location.reload();
 });
 
 // DISPLAY CARDS
 function displayCards() {
-
+     console.log(cards);
 	// add all cards into container
 	containerElem.innerHTML = `
 	${cards.map((card) => {
@@ -172,10 +171,10 @@ function displayCards() {
 };
 
 //getItem - LocalStorAge
-let words;
 
 function getCardsData() {
-	
+	let words;
+
 	if (localStorage.getItem('words') === null) {
 		words = []
 	} else {
@@ -197,7 +196,7 @@ function setCardsData(cards) {
 //cardsToUI
 
 function cardsToUI() {
-	let words = getCardsData();
-	displayCards(words);
+	cards = getCardsData()
+	displayCards();
 
 }
