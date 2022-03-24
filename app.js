@@ -119,12 +119,15 @@ addButton.addEventListener('click', function (e) {
 	backText.value = '';
 });
     cardsToUI()
+
 // CLEAR BUTTON
 clearBtn.addEventListener('click', () => {
-
+	
 	localStorage.removeItem('words');
-	containerElem.innerHTML = '';	
+	containerElem.innerHTML = '';
+
 	window.location.reload();
+		
 });
 
 // DISPLAY CARDS
