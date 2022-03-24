@@ -3,7 +3,7 @@
 
 - Frontend : HTML, Sass, JS
 
-- Tools : Github, VSCode, Github 
+- Tools : Github, VSCode, Github, Netlify 
 
 ## Meine Projekten (Geplannt)
 
@@ -16,7 +16,7 @@
 
 ## Links
 
-- [flashcard-project.netlify.app]
+- [https://flashcard-project.netlify.app/]
 
 
 
