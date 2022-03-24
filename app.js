@@ -10,6 +10,7 @@ const containerElem = document.querySelector('.cards-container')
 const buttonLeftElem = document.querySelector('.buttonLeft');
 const buttonRightElem = document.querySelector('.buttonRight');
 const clearBtn = document.querySelector('#clear')
+const btns = document.querySelector('.buttons')
 
 const mainPage = document.querySelector('.container')
 const loginCont = document.querySelector('.login-container')
@@ -120,16 +121,15 @@ addButton.addEventListener('click', function (e) {
     cardsToUI()
 // CLEAR BUTTON
 clearBtn.addEventListener('click', () => {
-	localStorage.clear();
-	containerElem.innerHTML = '';
-	
 
-	//window.location.reload();
+	localStorage.removeItem('words');
+	containerElem.innerHTML = '';	
+	window.location.reload();
 });
 
 // DISPLAY CARDS
 function displayCards() {
-     console.log(cards);
+     //console.log(cards);
 	// add all cards into container
 	containerElem.innerHTML = `
 	${cards.map((card) => {
