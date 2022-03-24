@@ -120,15 +120,6 @@ addButton.addEventListener('click', function (e) {
 });
     cardsToUI()
 
-// CLEAR BUTTON
-clearBtn.addEventListener('click', () => {
-	
-	localStorage.removeItem('words');
-	containerElem.innerHTML = '';
-
-	window.location.reload();
-		
-});
 
 // DISPLAY CARDS
 function displayCards() {
@@ -172,6 +163,17 @@ function displayCards() {
 
 	currentEl.innerHTML = `${currentCardIndex + 1}/${cards.length} `
 };
+
+// CLEAR BUTTON
+clearBtn.addEventListener('click', () => {
+	
+	localStorage.removeItem('words');
+	containerElem.innerHTML = '';
+
+	//window.location.reload();
+		
+});
+
 
 //getItem - LocalStorAge
 
