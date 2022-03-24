@@ -117,19 +117,7 @@ body main .container .login-container input::placeholder {
   font-weight: 900;
 }
 
-body main .container .login-container input::-webkit-input-placeholder:focus {
-  outline: none;
-}
-
-body main .container .login-container input:-ms-input-placeholder:focus {
-  outline: none;
-}
-
-body main .container .login-container input::-ms-input-placeholder:focus {
-  outline: none;
-}
-
-body main .container .login-container input::placeholder:focus {
+body main .container .login-container input:focus {
   outline: none;
 }
 
