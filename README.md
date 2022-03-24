@@ -1,13 +1,15 @@
 # Memory_Cards
 ## Tools
 
-- Frontend : HTML, Sass, JS
+- Frontend : HTML, Sass, JS, DOM
 
 - Tools : Github, VSCode, Github, Netlify 
 
-## Meine Projekten (Geplannt)
+## Meine Projekten
 
-- Flash Card (um die Wörter auswendig zu lernen)
+- Flash Card
+- Login
+- LocalStorage
 
 ## Color und Bild wahlen
 
