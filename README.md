@@ -1,6 +1,6 @@
 # Flash_Cards
 
-## demo: click [here](https://flashcard-project.netlify.app/) 
+## demo: [click](https://flashcard-project.netlify.app/) 
 
 ## Tools
 
